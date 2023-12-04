@@ -54,7 +54,7 @@ const WorkoutCard: React.FC = () => {
       {error && <p>Error: {error}</p>}
       {workouts.map((workout) => (
         <div
-          className="border shadow-lg shadow-black-50/50 p-[20px] m-5"
+          className=" flex felx-col items-start border shadow-lg shadow-black-50/50 p-[20px] m-5"
           key={workout._id}
         >
           <div className="">

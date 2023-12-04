@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 import mongoose from "mongoose";
 import workoutRoutes from "./routes/workouts.js";
+import ticketRoutes from './routes/ticket.js'
 
 const app = express();
 dotenv.config();
@@ -18,7 +19,8 @@ app.use(morgan("common"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/api", workoutRoutes);
+app.use('/api', workoutRoutes);
+app.use('/api', ticketRoutes);
 
 mongoose
   .connect(mongoose_uri)
