@@ -4,11 +4,11 @@ import React, { useState } from 'react';
 
 const GenerateTickets = () => {
   const [numberOfTickets, setNumberOfTickets] = useState(0);
-  const [success, setSuccess] = useState(null);
+  const [success, setSuccess] = useState('');
 
   const generateTickets = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/generate-tickets', {
+      const response = await fetch('http://localhost:5000/api/generate-tickets', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -18,6 +18,8 @@ const GenerateTickets = () => {
 
       if (response.ok) {
         console.log('Tickets generated successfully');
+        setSuccess(`${numberOfTickets} Tickets generated successfully`);
+        setSuccess('')
       } else {
         console.error('Failed to generate tickets');
       }
@@ -39,6 +41,7 @@ const GenerateTickets = () => {
         />
       </label>
       <button className="p-3 text-center bg-green-700 rounded-lg text-white" onClick={generateTickets}>Generate</button>
+      <p> {success && success}</p>
     </div>
   );
 };

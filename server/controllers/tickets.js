@@ -2,11 +2,11 @@ import ticketModel from "../models/ticket.js";
 import { v4 as uuidv4 } from "uuid";
 import QRCode from "qrcode";
 
-// function to generate random serial number
+
 const generateSerialnumber = () => {
-  return "MK-CODE-" + Math.floor(Math.random() * 10000);
+  return 'MK-CODE-' + Math.floor(Math.random() * 10000);
 };
-//function to generate the QR code
+
 const generateQRCode = async (data) => {
   try {
     const qrCodeDataUrl = await QRCode.toDataURL(data);
@@ -16,8 +16,6 @@ const generateQRCode = async (data) => {
     return null;
   }
 };
-
-// function to genetrate the ticket
 
 export const generateTickets = async (req, res) => {
   const { numberOfTickets } = req.body;
